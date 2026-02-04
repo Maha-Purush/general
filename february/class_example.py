@@ -1,5 +1,8 @@
-from car import Car
+from car import Student
 
-car1 = Car("Mustang", 2024, "Red", False)
+Student1 = Student("Mahesh", 'A')
+Student2 = Student("Suresh", 'B')
+Student3 = Student("Ramesh", 'C')
 
-print(car1.color)
+print(Student2.Name)
+print(Student2.class_var)
