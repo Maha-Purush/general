@@ -82,3 +82,5 @@
 
 # get_ice_cream(flavor="vanilla")
 # /////////////////////////////////////////
+
+# exceptions
