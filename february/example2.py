@@ -59,28 +59,3 @@
 #     print("Please enter a valid operation.")
 
 # /////////////////////////////////////////
-# decorators
-
-# def addsprinkles(func):
-#   def wrapper(*args, **kwargs):
-#     func(*args, **kwargs)
-#     print("i added sprinkles.")
-#   return wrapper
-
-# def addfudge(func):
-#   def wrapper(*args, **kwargs):    
-#     print ("i added fudge too.")
-#     func(*args, **kwargs)
-#   return wrapper
-
-
-# @addsprinkles
-# @addfudge
-# def get_ice_cream(flavor):
-#   print("Here's your ice cream.")
-#   print(f"i think you like {flavor} flavoured ice cream.")
-
-# get_ice_cream(flavor="vanilla")
-# /////////////////////////////////////////
-
-# exceptions
