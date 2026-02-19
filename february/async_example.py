@@ -68,20 +68,22 @@
 
 import asyncio
 
-async def work():
-  print("Work started")
-  await asyncio.sleep(3)
-  print("Work finished")
-  return 42
+async def worker():
+  print("Worker: Started")
+  await asyncio.sleep(2)
+  print("Worker: Finished")
+  return "Done"
 
 async def main():
-  task = asyncio.create_task(work())
-  print("Task created")
+  print("Main: Creating task")
+  task = asyncio.create_task(worker())
 
+  print("Main: Doing something else for 1 second")
   await asyncio.sleep(1)
-  print("After 1 second")
 
+  print("Main: Now awaiting the task")
   result = await task
-  print("Result: ", result)
+
+  print("Main: Gor result ->", result)
 
 asyncio.run(main())
