@@ -66,24 +66,38 @@
 #   print(result1, result2, result3)
 # asyncio.run(main())
 
+##########################################################
+
 import asyncio
+import time
+
+def now():
+    return round(time.time() - START_TIME, 2)
 
 async def worker():
-  print("Worker: Started")
-  await asyncio.sleep(2)
-  print("Worker: Finished")
-  return "Done"
+    print(f"{now()}s → Worker: Started")
+    await asyncio.sleep(4)
+    print(f"{now()}s → Worker: Finished")
+    return "Worker Result"
 
 async def main():
-  print("Main: Creating task")
-  task = asyncio.create_task(worker())
+    print(f"{now()}s → Main: Starting")
 
-  print("Main: Doing something else for 1 second")
-  await asyncio.sleep(1)
+    await asyncio.sleep(1)
+    print(f"{now()}s → Main: About to create task")
 
-  print("Main: Now awaiting the task")
-  result = await task
+    task = asyncio.create_task(worker())
 
-  print("Main: Gor result ->", result)
+    await asyncio.sleep(2)
+    print(f"{now()}s → Main: Still doing something else...")
 
+    await asyncio.sleep(2)
+    print(f"{now()}s → Main: Now awaiting the worker")
+
+    result = await task
+    print(f"{now()}s → Main: Got result -> {result}")
+
+    print(f"{now()}s → Main: Finished")
+
+START_TIME = time.time()
 asyncio.run(main())
